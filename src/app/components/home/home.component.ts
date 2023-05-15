@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   totalIn: number = 0;
   percentTarget: number = 10;
 
-  // arrRisk: boSo[] = [];
   result: boSo[] = [];
 
   constructor() { }
@@ -47,7 +46,6 @@ export class HomeComponent implements OnInit {
 
   onRandom() {
     this.totalIn = 0;
-    // this.arrRisk = [];
     this.result = [];
     this.monIn = this.monIn.map((x: number) => {
       let val = this.getRandomInt(2000);
@@ -72,7 +70,6 @@ export class HomeComponent implements OnInit {
       }
       this.result.push(val);
     });
-    // console.log(this.arrRisk);
   }
 
   onCalculate() {
