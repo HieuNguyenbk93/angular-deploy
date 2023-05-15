@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <button (click)="onRandom()" class="btn btn-primary">Click to run random</button>
+    <div class="col-sm-12 col-md-4">
+      <p class="text-center text-primary fs-3">Bảng đầu vào</p>
+      <p>Số - Tiền thu về - Tiền bù nếu trúng</p>
+      <ul>
+        <li *ngFor="let item of monIn; let index=index">
+          <p class="number" [class.success]="item * 80 < totalIn">
+            {{index}} - {{item}} - {{item * 80 | currency:'VND':'symbol':'1.0-0'}}
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-12 col-md-4">
+      <p class="text-center text-warrning fs-3">Số nguy cơ</p>
+      <p>Số - Tiền thu về - Tiền bù nếu trúng</p>
+      <ul>
+        <li *ngFor="let item of arrRisk">
+          <p>
+            {{item.number}} - {{item.money}} - {{item.money * 80 | currency:'VND':'symbol':'1.0-0'}}
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-12 col-md-4">
+      <p class="text-center text-success fs-3">Tổng vào: {{totalIn | currency:'VND':'symbol':'1.0-0'}}</p>
+    </div>
+  </div>
+</div>
