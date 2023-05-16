@@ -1,1 +1,45 @@
-<p>level-one works!</p>
+<div class="container">
+  <div class="d-flex justify-content-between pt-2">
+    <div class="d-flex justify-content-between">
+      <span class="fs-5">Nhập tỷ lệ trúng</span>
+      <input [(ngModel)]="tyLe" type="number" step="1" class="form-control">
+    </div>
+    <div>
+      <button (click)="onClickRandom()" class="btn btn-primary">Click to random</button>
+    </div>
+    <span class="text-success fs-3">Tổng tiền giữ: {{totalHole | number: '1.0-0'}}</span>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p class="fs-3">Bảng đầu vào</p>
+      <ul>
+        <li *ngFor="let item of tienThu; let index=index">
+          {{index}} - {{item}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-9">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Số</th>
+            <th scope="col">Tiền thu</th>
+            <th scope="col">Tiền giữ</th>
+            <th scope="col">Tiền chuyển</th>
+            <th scope="col">Stt trừ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tableCal; let index=index" [ngClass]="{'table-success': item.isMin}">
+            <th scope="row">{{item.so}}</th>
+            <td>{{item.tienThu | number: '1.0-0'}}</td>
+            <td>{{item.tienGiu | number: '1.0-0'}}</td>
+            <td>{{item.tienChuyen | number: '1.0-0'}}</td>
+            <td>{{item.minIndex ? item.minIndex: ''}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
